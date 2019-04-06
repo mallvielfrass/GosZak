@@ -1,0 +1,30 @@
+html {
+    font-family: sans-serif;
+  }
+  
+  form {
+    width: 900px;
+    margin: 0 auto;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  fieldset {
+    background: #778899;
+    border: 5px solid #000000;
+  }
+  
+  legend {
+    padding: 10px;
+    background: #2F4F4F;
+    color: #FFFFFF;
+  }
+  .butt {
+    background: #C0C0C0;
+    color: #000000;
+  }
+  .back{
+   background:#808080;
+  }
