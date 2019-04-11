@@ -44,6 +44,7 @@ function a(){
   // console.log(document.forms["forms"].elements["interest"][1].value);
   console.log("key start")
   var labellibrary="";
+  
   for (var key in library){
     if (library.hasOwnProperty(key)) {
 
@@ -52,9 +53,10 @@ function a(){
     }
   }
  // labeltext1.innerText=labellibrary;
+ labellibrary="searchString="+myForm.elements["InputBox"].value+labellibrary
   send(labellibrary)
   //  labeltext1.innerText="lol";
-    //console.log("hi")
+    lol.innerText=myForm.elements["InputBox"].value
 }
 async function send(xlibrary) {
 
