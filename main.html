@@ -3,12 +3,12 @@
  <head> 
     <script src="etc/script.js"></script>
     <link href="etc/style.css" rel="stylesheet">
-   
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">    
 </head>
  <body class="back">
-
+    <legend>Парсер гос.закупок</legend>
     <fieldset>
-    <legend>Scegli il parametri</legend>
+    
       <form id="forms"> 
       <div name="divcheck">
         <input type="checkbox" id="fz94" name="interest" value="on" >
@@ -21,38 +21,43 @@
         <label for="coding">44-ФЗ </label>
       </div>
       <div>
-        <input type="checkbox" id="af" name="interest" value="true" >
+        <input type="checkbox" id="af" name="interest" value="true">
         <label for="coding">Подача заявок </label>
+        <br>
         <input type="checkbox" id="ca" name="interest" value="true" >
         <label for="coding">Работа комиссии </label>
+        <br>
         <input type="checkbox" id="pc" name="interest" value="true" >
         <label for="coding">Процедура завершена </label>
+        <br>
         <input type="checkbox" id="pa" name="interest" value="true" >
         <label for="coding">Процедура отменена </label>
    </div>
        <div>
-   <label for="date">data </label>
+   <label for="date">С  </label>
    <input type="date"id="date" name="date1"/>
-         <label for="date2">data </label>
+         <label for="date2">до  </label>
    <input type="date" id="date2" name="date2"/>
               </div>
       <div>
-        <p>сортировка
+        <p>сортировка:
         <input name="sort1" type="radio" value="false"><label for="radiobutton1">вверх</label>
         <input name="sort1" type="radio" value="true"><label for="radiobutton2">вниз</label>
       </div>
       <div>
         <p>сортировать по:
-            <input name="radiobutton2" type="radio" value="UPDATE_DATE"><label >дата обновления</label>
-            <input name="radiobutton2" type="radio" value="PUBLISH_DATE"><label >дата размещения</label> 
+          <br>
+          <input name="radiobutton2" type="radio" value="UPDATE_DATE"><label >дата обновления</label>
+          <br>
+          <input name="radiobutton2" type="radio" value="PUBLISH_DATE"><label >дата размещения</label> 
+          <br>
           <input name="radiobutton2" type="radio" value="PRICE"><label >цена</label>
+          <br>
           <input name="radiobutton2" type="radio" value="RELEVANCE"><label >релевантность</label>
-        <p id="labelText">lol</p>
-        <p id="lol">loler</p>
       </div> 
+    
      <select  name="selectCity">
     <option value="1&districts=5277336&region_regions_5277347=region_regions_5277347&regions=5277347" >Санкт-Петербург</option>
-   
     <option value="moscow">Москва</option>
   </select> 
       
@@ -60,15 +65,17 @@
       
       
       <div>
-      <br>  <button type="button" OnClick="a();return false"" class="butt">inviare</button> </div>
+      <br>  <button type="button" OnClick="a();return false"" class="butt">Получить</button> </div>
         </form>
     <div >  <p id="labeltext1">
-        место для данных
+        Результат
         
       </p></div>
     </fieldset>
-  
-    
-    
+    <footer>
+      <p class='footer_p'>
+        <a href='/about'>О авторах</a>
+      </p>
+    </footer>
     </body>
     </html>

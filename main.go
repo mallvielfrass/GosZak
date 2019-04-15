@@ -28,9 +28,13 @@ func index(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "main.html")
 
 }
+func about(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "about.html")
+}
 func main() {
-	http.HandleFunc("/index", index)
+	http.HandleFunc("/", index)
 	http.HandleFunc("/api", api)
+	http.HandleFunc("/about", about)
 	fs := http.FileServer(http.Dir("etc"))
 	http.Handle("/etc/", http.StripPrefix("/etc/", fs))
 	fmt.Println("Server is listening...", "\n", "localhost:8080")

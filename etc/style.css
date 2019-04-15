@@ -1,10 +1,12 @@
 html {
-    font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background: #F5FFFA;
   }
   
   form {
-    width: 900px;
-    margin: 0 auto;
+    display: block;
+    text-align: center;
+    margin: 0;
   }
   
   div {
@@ -12,19 +14,24 @@ html {
   }
   
   fieldset {
-    background: #778899;
-    border: 5px solid #000000;
+    
+    background: #FFF8DC;
   }
   
   legend {
     padding: 10px;
-    background: #2F4F4F;
-    color: #FFFFFF;
+    text-align: center;
+    color: rgb(0, 0, 0);
   }
   .butt {
-    background: #C0C0C0;
+    
     color: #000000;
   }
   .back{
-   background:#808080;
   }
+
+/* About html */
+
+.about  {
+  text-align: center;
+}
