@@ -8,6 +8,14 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+type StructOneBlock struct {
+	BoxIcons         string
+	TenderTd         string
+	DescriptTenderTd string
+	AmountTenderTd   string
+	ReportBox        string
+}
+
 func get(params string) string {
 	url := "http://www.zakupki.gov.ru/epz/order/quicksearch/search.html?" + params
 	page, err := http.Get(url) // выполняем запрос
@@ -29,13 +37,30 @@ func get(params string) string {
 	header, _ := doc.Find(".allRecords").Html()
 	//content, _ := doc.Find(".parametrs").Html()
 	//fmt.Println(header)\
+	numBlock := 0
 	doc.Find("div").Each(func(i int, s *goquery.Selection) {
 		class, _ := s.Attr("class")
+
 		switch class {
 		case "registerBox registerBoxBank margBtm20":
+			fmt.Println(numBlock)
 			OneBlock, _ = s.Html()
+			s.Find("td").Each(func(i int, l *goquery.Selection) {
+				classx, _ := l.Attr("class")
+
+				switch classx {
+				case "tenderTd":
+
+					//fmt.Println(l.Html())
+
+				default:
+
+				}
+			})
 			massivData = massivData + OneBlock
-			fmt.Println(s.Html())
+
+			fmt.Println(OneBlock)
+			numBlock = numBlock + 1
 		default:
 
 		}
