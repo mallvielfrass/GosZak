@@ -23,11 +23,25 @@ func get(params string) string {
 	if err != nil {
 		log.Fatal(err)
 	}
+	OneBlock := ""
+	massivData := ""
 	//fmt.Println(doc.Html())
-	header := doc.Find(".allRecords").Text()
-	content, _ := doc.Find(".parametrs").Html()
-	//fmt.Println(header)
+	header, _ := doc.Find(".allRecords").Html()
+	//content, _ := doc.Find(".parametrs").Html()
+	//fmt.Println(header)\
+	doc.Find("div").Each(func(i int, s *goquery.Selection) {
+		class, _ := s.Attr("class")
+		switch class {
+		case "registerBox registerBoxBank margBtm20":
+			OneBlock, _ = s.Html()
+			massivData = massivData + OneBlock
+			fmt.Println(s.Html())
+		default:
 
-	fmt.Println(content, doc.Find(".allRecords").Text())
-	return string(header + content)
+		}
+	})
+
+	//fmt.Println(content, doc.Find(".allRecords").Text())
+	returned := massivData + string(header)
+	return returned
 }
