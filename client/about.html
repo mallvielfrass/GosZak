@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>About</title>
+		<title>Парсер госзакупок - О парсере</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/uikit.min.css" />
+		<script data-main="/js/main" src="/js/require.js"></script>
 	</head>
 	<body>
-		<div class="about">
-			<h1>Об авторах</h1>
+		<header>
+			<nav class="uk-navbar-container" uk-navbar>
+				<div class="uk-navbar-left">
+					<a class="uk-navbar-item uk-logo" href="/">Парсер госзакупок</a>
+				</div>
+			</nav>
+		</header>
 
-			<p>
-				Написал программу и сверстал основу:
-				<br>
-				<a href="https://t.me/vielfrass">Captain Jack Vielfrass</a>
-			</p>
+		<main class="uk-section uk-section-default">
+			<div class="uk-container uk-container-small">
+				<h1 class="uk-heading-medium uk-text-center">О парсере</h1>
 
-			<p>
-				Улучшил интерфейс:
-				<br>
-				<a href="https://t.me/rasongame">rasongame</a>
-			</p>
+				<p>
+					Автор: <a href="https://github.com/mallvielfrass" class="uk-link-text">Captain Jack Vielfrass</a>
+				</p>
 
-			<p>
-				Улучшение интерфейса, часть 2:
-				<br>
-				<a href="https://github.com/ilya-fedin">Илья Федин</a>
-			</p>
+				<p>
+					Благодарность за помощь:
+					<br>
+					<a href="https://github.com/rasongame" class="uk-link-text">rasongame</a>
+					<br>
+					<a href="https://github.com/ilya-fedin" class="uk-link-text">Илья Федин</a>
+				</p>
+			</div>
+		</main>
 
-			<img class="gopher-img" src="https://im0-tub-ru.yandex.net/i?id=c7b8de4d650c90e68e023b6a17671ff2-l&n=13">
-		</div>
+		<footer>
+			<div class="uk-section-small">
+				<div class="uk-container uk-container-expand uk-text-center uk-position-relative">
+					<ul uk-margin="" class="uk-subnav tm-subnav uk-flex-inline uk-flex-center uk-margin-remove-bottom">
+						<li class="uk-first-column">
+							<a href="/about.html">О парсере</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>

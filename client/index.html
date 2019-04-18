@@ -11,150 +11,148 @@
 		<header>
 			<nav class="uk-navbar-container" uk-navbar>
 				<div class="uk-navbar-left">
-					<a class="uk-navbar-item uk-logo" href="javascript:void();">Парсер госзакупок</a>
+					<a class="uk-navbar-item uk-logo" href="/">Парсер госзакупок</a>
 				</div>
 			</nav>
 		</header>
 
 		<main class="uk-section uk-section-default">
 			<div class="uk-container uk-container-small">
-				<form id="searchForm">
-					<fieldset class="uk-fieldset">
-						<div class="uk-margin">
-							<input class="uk-input" type="text" placeholder="Запрос" name="searchString" required size="30">
-						</div>
+				<form id="searchForm" class="uk-grid-small" uk-grid>
+					<div class="uk-width-1-2@s">
+						<input class="uk-input" type="text" placeholder="Запрос" name="searchString" required size="30">
+					</div>
 
-						<div class="uk-margin">
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="94-fz" >
-								94-ФЗ
-							</label>
+					<div class="uk-width-1-2@s">
+						<select class="uk-select" name="cityName">
+							<option value="st_petersburg">Санкт-Петербург</option>
+							<option value="moscow">Москва</option>
+						</select>
+					</div>
 
-							<br>
+					<div class="uk-width-1-2@s">
+						<label>
+							С:
+							<input class="uk-input uk-form-width-small" type="date" name="publishDateFrom"/>
+						</label>
+					</div>
 
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="pp_rf_615" >
-								ПП РФ 615
-							</label>
+					<div class="uk-width-1-2@s">
+						<label>
+							До:
+							<input class="uk-input uk-form-width-small" type="date" name="publishDateTo"/>
+						</label>
+					</div>
 
-							<br>
+					<div class="uk-width-1-2@s">
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="lawNumber" value="94-fz" >
+							94-ФЗ
+						</label>
 
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="223-fz" >
-								223-ФЗ
-							</label>
-							<br>
+						<br>
 
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="44-fz" >
-								44-ФЗ
-							</label>
-						</div>
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="lawNumber" value="pp_rf_615" >
+							ПП РФ 615
+						</label>
 
-						<div class="uk-margin">
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="procedureType" value="applicationSubmission">
-								Подача заявок
-							</label>
+						<br>
 
-							<br>
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="lawNumber" value="223-fz" >
+							223-ФЗ
+						</label>
+						<br>
 
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="procedureType" value="commissionWork" >
-								Работа комиссии
-							</label>
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="lawNumber" value="44-fz" >
+							44-ФЗ
+						</label>
+					</div>
 
-							<br>
+					<div class="uk-width-1-2@s">
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="procedureType" value="applicationSubmission">
+							Подача заявок
+						</label>
 
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="procedureType" value="procedureCompleted" >
-								Процедура завершена
-							</label>
+						<br>
 
-							<br>
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="procedureType" value="commissionWork" >
+							Работа комиссии
+						</label>
 
-							<label>
-								<input class="uk-checkbox" type="checkbox" name="procedureType" value="procedureAborted" >
-								Процедура отменена
-							</label>
-						</div>
+						<br>
 
-						<div class="uk-margin">
-							<label>
-								С:
-								<input class="uk-input uk-form-width-small" type="date" name="publishDateFrom"/>
-							</label>
-						</div>
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="procedureType" value="procedureCompleted" >
+							Процедура завершена
+						</label>
 
-						<div class="uk-margin">
-							<label>
-								До:
-								<input class="uk-input uk-form-width-small" type="date" name="publishDateTo"/>
-							</label>
-						</div>
+						<br>
 
-						<div class="uk-margin">
-							Сортировка:
-							<br>
+						<label>
+							<input class="uk-checkbox" type="checkbox" name="procedureType" value="procedureAborted" >
+							Процедура отменена
+						</label>
+					</div>
 
-							<label>
-								<input name="sortDirection" class="uk-radio" type="radio" value="up">
-								Вверх
-							</label>
+					<div class="uk-width-1-2@s">
+						Сортировка:
+						<br>
 
-							<br>
+						<label>
+							<input name="sortDirection" class="uk-radio" type="radio" value="up">
+							Вверх
+						</label>
 
-							<label>
-								<input name="sortDirection" class="uk-radio" type="radio" value="down">
-								Вниз
-							</label>
-						</div>
+						<br>
 
-						<div class="uk-margin">
-							Сортировать по:
-							<br>
+						<label>
+							<input name="sortDirection" class="uk-radio" type="radio" value="down">
+							Вниз
+						</label>
+					</div>
 
-							<label>
-								<input name="sortBy" class="uk-radio" type="radio" value="updateDate">
-								Дата обновления
-							</label>
+					<div class="uk-width-1-2@s">
+						Сортировать по:
+						<br>
 
-							<br>
+						<label>
+							<input name="sortBy" class="uk-radio" type="radio" value="updateDate">
+							Дата обновления
+						</label>
 
-							<label>
-								<input name="sortBy" class="uk-radio" type="radio" value="publishDate">
-								Дата размещения
-							</label>
+						<br>
 
-							<br>
+						<label>
+							<input name="sortBy" class="uk-radio" type="radio" value="publishDate">
+							Дата размещения
+						</label>
 
-							<label>
-								<input name="sortBy" class="uk-radio" type="radio" value="price">
-								Цена
-							</label>
+						<br>
 
-							<br>
+						<label>
+							<input name="sortBy" class="uk-radio" type="radio" value="price">
+							Цена
+						</label>
 
-							<label>
-								<input name="sortBy" class="uk-radio" type="radio" value="relevance">
-								Релевантность
-							</label>
-						</div> 
+						<br>
 
-						<div class="uk-margin">
-							<select class="uk-select uk-form-width-medium" name="cityName">
-								<option value="st_petersburg">Санкт-Петербург</option>
-								<option value="moscow">Москва</option>
-							</select>
-						</div>
+						<label>
+							<input name="sortBy" class="uk-radio" type="radio" value="relevance">
+							Релевантность
+						</label>
+					</div>
 
-						<div class="uk-margin">
-							<button class="uk-button uk-button-primary">Получить</button>
-						</div>
-					</fieldset>
+					<div class="uk-width-1-1 uk-text-center">
+						<button class="uk-button uk-button-primary">Получить</button>
+					</div>
 				</form>
 
-				<div id="result"></div>
+				<div class="uk-margin-large-top" id="result"></div>
 			</div>
 		</main>
 
@@ -163,7 +161,7 @@
 				<div class="uk-container uk-container-expand uk-text-center uk-position-relative">
 					<ul uk-margin="" class="uk-subnav tm-subnav uk-flex-inline uk-flex-center uk-margin-remove-bottom">
 						<li class="uk-first-column">
-							<a href='/about.html'>Об авторах</a>
+							<a href="/about.html">О парсере</a>
 						</li>
 					</ul>
 				</div>

@@ -49,25 +49,35 @@ func (m Api) Search(w http.ResponseWriter, r *http.Request) {
 	var query SearchQuery
 	var getInfo GetInfo
 
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	body, err := ioutil.ReadAll(r.Body)
-	defer r.Body.Close()
 	if err != nil {
 		log.Print(err)
+		w.Header().Set("Content-Type", "application/json")
 		http.Error(w, m.JsonifyError(err), 500)
 		return
 	}
+
+	defer r.Body.Close()
 
 	err = json.Unmarshal(body, &query)
 	if err != nil {
 		log.Print(err)
+		w.Header().Set("Content-Type", "application/json")
 		http.Error(w, m.JsonifyError(err), 500)
 		return
 	}
 
-	result := getInfo.Search(query)
+	result, err := getInfo.Search(query)
+	if err != nil {
+		log.Print(err)
+		w.Header().Set("Content-Type", "application/json")
+		http.Error(w, m.JsonifyError(err), 500)
+		return
+	}
 
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
 	fmt.Fprintf(w, result)
 
 }

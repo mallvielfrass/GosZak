@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"time"
 	"net/http"
 	"net/url"
@@ -12,7 +11,7 @@ import (
 
 type GetInfo struct {}
 
-type StructOneBlock struct {
+type SearchItemBlock struct {
 	BoxIcons         string
 	TenderTd         string
 	DescriptTenderTd string
@@ -28,19 +27,14 @@ func (_ GetInfo) SearchQueryToParams(searchQuery SearchQuery) string {
 			params += "&"
 		}
 
-		if item == "94-fz" {
+		switch item {
+		case "94-fz":
 			params += "fz94=on"
-		}
-
-		if item == "pp_rf_615" {
+		case "pp_rf_615":
 			params += "ppRf615=on"
-		}
-
-		if item == "223-fz" {
+		case "223-fz":
 			params += "fz223=on"
-		}
-
-		if item == "44-fz" {
+		case "44-fz":
 			params += "fz44=on"
 		}
 	}
@@ -50,19 +44,14 @@ func (_ GetInfo) SearchQueryToParams(searchQuery SearchQuery) string {
 			params += "&"
 		}
 
-		if item == "applicationSubmission" {
+		switch item {
+		case "applicationSubmission":
 			params += "af=on"
-		}
-
-		if item == "commissionWork" {
+		case "commissionWork":
 			params += "ca=on"
-		}
-
-		if item == "procedureCompleted" {
+		case "procedureCompleted":
 			params += "pc=on"
-		}
-
-		if item == "procedureAborted" {
+		case "procedureAborted":
 			params += "pa=on"
 		}
 	}
@@ -109,57 +98,37 @@ func (_ GetInfo) SearchQueryToParams(searchQuery SearchQuery) string {
 	return params
 }
 
-func (m GetInfo) Search(searchQuery SearchQuery) string {
-	url := "http://www.zakupki.gov.ru/epz/order/quicksearch/search.html?" + m.SearchQueryToParams(searchQuery)
+func (m GetInfo) Search(searchQuery SearchQuery) (string, error) {
+	url := "http://zakupki.gov.ru/epz/order/quicksearch/search.html?" + m.SearchQueryToParams(searchQuery)
+
 	page, err := http.Get(url)
 	if err != nil {
-		log.Fatalln(err)
+		return "", err
 	}
+
 	defer page.Body.Close()
+
 	if page.StatusCode != 200 {
-		log.Fatalf("status code error: %d %s", page.StatusCode, page.Status)
+		return "", fmt.Errorf("status code error: %d %s", page.StatusCode, page.Status)
 	}
 
 	doc, err := goquery.NewDocumentFromReader(page.Body)
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
-	OneBlock := ""
-	massivData := ""
-	//fmt.Println(doc.Html())
-	header, _ := doc.Find(".allRecords").Html()
-	//content, _ := doc.Find(".parametrs").Html()
-	//fmt.Println(header)\
-	numBlock := 0
-	doc.Find("div").Each(func(i int, s *goquery.Selection) {
-		class, _ := s.Attr("class")
 
-		switch class {
-		case "registerBox registerBoxBank margBtm20":
-			fmt.Println(numBlock)
-			OneBlock, _ = s.Html()
-			s.Find("td").Each(func(i int, l *goquery.Selection) {
-				classx, _ := l.Attr("class")
+	itemBlocks := ""
+	header, _ := goquery.OuterHtml(doc.Find(".allRecords"))
 
-				switch classx {
-				case "tenderTd":
+	doc.Find("div.registerBox.registerBoxBank.margBtm20").Each(func(i int, s *goquery.Selection) {
+		itemBlock, _ := s.Html()
+		itemBlocks += itemBlock
 
-					//fmt.Println(l.Html())
-
-				default:
-
-				}
-			})
-			massivData = massivData + OneBlock
-
-			fmt.Println(OneBlock)
-			numBlock = numBlock + 1
-		default:
-
-		}
+		/* s.Find("td.tenderTd").Each(func(i int, l *goquery.Selection) {
+			//fmt.Println(l.Html())
+		}) */
 	})
 
-	//fmt.Println(content, doc.Find(".allRecords").Text())
-	returned := massivData + string(header)
-	return returned
+	returned := itemBlocks + header
+	return returned, nil
 }
