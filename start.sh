@@ -1,3 +1,3 @@
 #!/bin/env bash
 
-go run *.go
+go run server/*.go
