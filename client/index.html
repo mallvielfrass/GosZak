@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title>Парсер гос. закупок</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/css/uikit.min.css" />
+		<script data-main="/js/main" src="/js/require.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav class="uk-navbar-container" uk-navbar>
+				<div class="uk-navbar-left">
+					<a class="uk-navbar-item uk-logo" href="javascript:void();">Парсер гос. закупок</a>
+				</div>
+			</nav>
+		</header>
+
+		<main class="uk-section uk-section-default">
+			<div class="uk-container uk-container-small">
+				<form id="searchForm">
+					<fieldset class="uk-fieldset">
+						<div class="uk-margin">
+							<input class="uk-input" type="text" placeholder="Запрос" name="searchQuery" required size="30">
+						</div>
+
+						<div class="uk-margin">
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="94-fz" >
+								94-ФЗ
+							</label>
+
+							<br>
+
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="pp-rf-615" >
+								ПП РФ 615
+							</label>
+
+							<br>
+
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="223-fz" >
+								223-ФЗ
+							</label>
+							<br>
+
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="44-fz" >
+								44-ФЗ
+							</label>
+						</div>
+
+						<div class="uk-margin">
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="procedureType" value="applicationSubmission">
+								Подача заявок
+							</label>
+
+							<br>
+
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="procedureType" value="commissionWork" >
+								Работа комиссии
+							</label>
+
+							<br>
+
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="procedureType" value="completed" >
+								Процедура завершена
+							</label>
+
+							<br>
+
+							<label>
+								<input class="uk-checkbox" type="checkbox" name="procedureType" value="canceled" >
+								Процедура отменена
+							</label>
+						</div>
+
+						<div class="uk-margin">
+							<label>
+								С:
+								<input class="uk-input uk-form-width-small" type="date" name="publishDateFrom"/>
+							</label>
+						</div>
+
+						<div class="uk-margin">
+							<label>
+								До:
+								<input class="uk-input uk-form-width-small" type="date" name="publishDateTo"/>
+							</label>
+						</div>
+
+						<div class="uk-margin">
+							Сортировка:
+							<br>
+
+							<label>
+								<input name="sortDirection" class="uk-radio" type="radio" value="up">
+								Вверх
+							</label>
+
+							<br>
+
+							<label>
+								<input name="sortDirection" class="uk-radio" type="radio" value="down">
+								Вниз
+							</label>
+						</div>
+
+						<div class="uk-margin">
+							Сортировать по:
+							<br>
+
+							<label>
+								<input name="sortBy" class="uk-radio" type="radio" value="updateDate">
+								Дата обновления
+							</label>
+
+							<br>
+
+							<label>
+								<input name="sortBy" class="uk-radio" type="radio" value="publishDate">
+								Дата размещения
+							</label>
+
+							<br>
+
+							<label>
+								<input name="sortBy" class="uk-radio" type="radio" value="price">
+								Цена
+							</label>
+
+							<br>
+
+							<label>
+								<input name="sortBy" class="uk-radio" type="radio" value="relevance">
+								Релевантность
+							</label>
+						</div> 
+
+						<div class="uk-margin">
+							<select class="uk-select uk-form-width-medium" name="cityName">
+								<option value="st_petersburg">Санкт-Петербург</option>
+								<option value="moscow">Москва</option>
+							</select>
+						</div>
+
+						<div class="uk-margin">
+							<button class="uk-button uk-button-primary">Получить</button>
+						</div>
+					</fieldset>
+				</form>
+
+				<div id="result"></div>
+			</div>
+		</main>
+
+		<footer>
+			<div class="uk-section-small">
+				<div class="uk-container uk-container-expand uk-text-center uk-position-relative">
+					<ul uk-margin="" class="uk-subnav tm-subnav uk-flex-inline uk-flex-center uk-margin-remove-bottom">
+						<li class="uk-first-column">
+							<a href='/about.html'>Об авторах</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
