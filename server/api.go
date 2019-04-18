@@ -17,7 +17,7 @@ type SearchQuery struct {
 	CityName string
 	PublishDateFrom int
 	PublishDateTo int
-	SearchQuery string
+	SearchString string
 }
 
 type ServerError struct {
@@ -47,6 +47,7 @@ func (_ Api) Root(w http.ResponseWriter, r *http.Request) {
 
 func (m Api) Search(w http.ResponseWriter, r *http.Request) {
 	var query SearchQuery
+	var getInfo GetInfo
 
 	body, err := ioutil.ReadAll(r.Body)
 	defer r.Body.Close()
@@ -63,7 +64,7 @@ func (m Api) Search(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	result := get(query)
+	result := getInfo.Search(query)
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.Header().Set("Access-Control-Allow-Origin", "*")

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head> 
-		<title>Парсер гос. закупок</title>
+		<title>Парсер госзакупок</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/css/uikit.min.css" />
@@ -11,7 +11,7 @@
 		<header>
 			<nav class="uk-navbar-container" uk-navbar>
 				<div class="uk-navbar-left">
-					<a class="uk-navbar-item uk-logo" href="javascript:void();">Парсер гос. закупок</a>
+					<a class="uk-navbar-item uk-logo" href="javascript:void();">Парсер госзакупок</a>
 				</div>
 			</nav>
 		</header>
@@ -21,7 +21,7 @@
 				<form id="searchForm">
 					<fieldset class="uk-fieldset">
 						<div class="uk-margin">
-							<input class="uk-input" type="text" placeholder="Запрос" name="searchQuery" required size="30">
+							<input class="uk-input" type="text" placeholder="Запрос" name="searchString" required size="30">
 						</div>
 
 						<div class="uk-margin">
@@ -33,7 +33,7 @@
 							<br>
 
 							<label>
-								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="pp-rf-615" >
+								<input class="uk-checkbox" type="checkbox" name="lawNumber" value="pp_rf_615" >
 								ПП РФ 615
 							</label>
 
@@ -67,14 +67,14 @@
 							<br>
 
 							<label>
-								<input class="uk-checkbox" type="checkbox" name="procedureType" value="completed" >
+								<input class="uk-checkbox" type="checkbox" name="procedureType" value="procedureCompleted" >
 								Процедура завершена
 							</label>
 
 							<br>
 
 							<label>
-								<input class="uk-checkbox" type="checkbox" name="procedureType" value="canceled" >
+								<input class="uk-checkbox" type="checkbox" name="procedureType" value="procedureAborted" >
 								Процедура отменена
 							</label>
 						</div>

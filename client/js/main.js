@@ -47,7 +47,7 @@ requirejs(['uikit'], function() {
 			library['publishDateTo'] = Math.round(Date.parse(searchForm.elements['publishDateTo'].value) / 1000);
 		}
 
-		library['searchQuery'] = searchForm.elements['searchQuery'].value;
+		library['searchString'] = searchForm.elements['searchString'].value;
 
 		let response = await fetch('/api/search', {
 			method: 'POST',
