@@ -9,11 +9,7 @@
 	</head>
 	<body>
 		<header>
-			<nav class="uk-navbar-container" uk-navbar>
-				<div class="uk-navbar-left">
-					<a class="uk-navbar-item uk-logo" href="/">Парсер госзакупок</a>
-				</div>
-			</nav>
+			<app-header></app-header>
 		</header>
 
 		<main class="uk-section uk-section-default">
@@ -21,29 +17,21 @@
 				<h1 class="uk-heading-medium uk-text-center">О парсере</h1>
 
 				<p>
-					Автор: <a href="https://github.com/mallvielfrass" class="uk-link-text">Captain Jack Vielfrass</a>
+					Автор: <a href="https://github.com/mallvielfrass">Captain Jack Vielfrass</a>
 				</p>
 
 				<p>
 					Благодарность за помощь:
-					<br>
-					<a href="https://github.com/rasongame" class="uk-link-text">rasongame</a>
-					<br>
-					<a href="https://github.com/ilya-fedin" class="uk-link-text">Илья Федин</a>
+					<ul class="uk-list uk-list-bullet">
+						<li><a href="https://github.com/rasongame">rasongame</a></li>
+						<li><a href="https://github.com/ilya-fedin">Илья Федин</a></li>
+					</ul>
 				</p>
 			</div>
 		</main>
 
 		<footer>
-			<div class="uk-section-small">
-				<div class="uk-container uk-container-expand uk-text-center uk-position-relative">
-					<ul uk-margin="" class="uk-subnav tm-subnav uk-flex-inline uk-flex-center uk-margin-remove-bottom">
-						<li class="uk-first-column">
-							<a href="/about.html">О парсере</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<app-footer></app-footer>
 		</footer>
 	</body>
 </html>
