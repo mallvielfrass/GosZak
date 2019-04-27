@@ -1,3 +1,4 @@
-#!/bin/env bash
-cd server
-go run *.go
+#!/bin/sh
+
+make -C server
+./server/server
